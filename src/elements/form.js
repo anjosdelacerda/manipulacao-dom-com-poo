@@ -4,12 +4,30 @@
  * criar uma classe de botões
  * prever em props a propriedade 'type' para os inputs
  */
-import Element from "./element";
+import Element from "./element.js";
 
 class Form extends Element{
 
-    constructor(tagName, props){
-        super(tagName, props)
+    constructor (props){
+        super('form', props)
+
+        const {inputList, buttonList, title} = props
+
+        if(title){
+            this.appendChild(title.getElement())
+        }
+
+        if(Array.isArray(inputList)){
+            inputList?.forEach((input) =>{
+                this.appendChild(input.getElement())
+            })
+        }
+
+        if(Array.isArray(buttonList)){
+            buttonList?.forEach((button) =>{
+                this.appendChild(button.getElement())
+            })
+        }
 
     }
 

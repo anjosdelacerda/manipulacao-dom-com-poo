@@ -12,7 +12,7 @@ class Label extends Element {
             console.log('labelFor needs to be a string')
         }
 
-        this.getElement().for = this.#labelFor
+        this.getElement().setAttribute('for', this.#labelFor)
     }
 
 }

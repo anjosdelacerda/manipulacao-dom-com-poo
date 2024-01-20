@@ -13,9 +13,9 @@ class Element {
         if(tagId){
             if(typeof tagId === 'string'){
                 this.#element.id = tagId
-            }
-            // throw new Error('tagId needs to be a string')
-            console.log('tagId needs to be a string')
+            }else{
+                console.log('tagId needs to be a string')
+            }   
         }
 
         if(innerHtml){
@@ -31,6 +31,15 @@ class Element {
 
         this.#element.appendChild(childElement)
 
+    }
+
+    appendText(text){
+        if(typeof text !== 'string'){
+            console.log('text needs to be a string')
+        }else{
+            const newText = document.createTextNode(text)
+            this.#element.appendChild(newText)
+        }
     }
 }
 
