@@ -5,7 +5,7 @@ class Title extends Element {
     #size 
     #text
     constructor(size, text, props){
-        super(`h${size}`)
+        super(`h${size}`, props)
 
         this.#size = size.toString()
         this.#text = text

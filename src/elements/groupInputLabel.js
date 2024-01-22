@@ -41,10 +41,6 @@ class GroupInputLabel extends Element {
         this.appendChild(label.getElement())
     }
 
-    addClassesToChildren(children, tagChildren){
-        children.classList.add(`${this.classList[0]}__${tagChildren}`)
-    }
-
 }
 
 export default GroupInputLabel

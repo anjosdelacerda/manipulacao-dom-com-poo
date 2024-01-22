@@ -11,7 +11,9 @@ class Form extends Element{
     constructor (props){
         super('form', props)
 
-        const {inputList, buttonList, title} = props
+        const {inputList, buttonList, title, classList} = props
+
+        this.divButtons = null
 
         if(title){
             this.appendChild(title.getElement())
@@ -23,14 +25,23 @@ class Form extends Element{
             })
         }
 
-        if(Array.isArray(buttonList)){
-            buttonList?.forEach((button) =>{
-                this.appendChild(button.getElement())
-            })
+        if(buttonList){
+            const newDiv = new Element('div')
+            if(classList){
+                if(Array.isArray(classList)){
+                    this.addClassesToChildren(newDiv.getElement(), 'div-butttons')
+                }
+            }
+            this.divButtons = newDiv
+            this.appendChild(this.divButtons.getElement())
         }
 
+        if(Array.isArray(buttonList)){
+            buttonList?.forEach((button) =>{
+                this.divButtons.appendChild(button.getElement())
+            })
+        }
     }
-
 }
 
 export default Form
